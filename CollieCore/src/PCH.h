@@ -16,3 +16,7 @@
 #include <cstdio>
 #include <fstream>
 #include <ostream>
+
+#include "CollieCore/Core/Public/Logger.h"
+#include "CollieCore/Core/Public/HString.h"
+#include "CollieCore/Core/Public/Assert.h"

@@ -28,6 +28,7 @@ enum : std::uint16_t
         sprintf_s(buffer, "[Message] [%s] ", __FUNCTION__); \
         Collie::Logger::GetInstance().Log(std::move(buffer), Collie::LogVerbosity::Message, __VA_ARGS__); \
     }
+
 #else
     #define LOG_ERROR(...) {}
     #define LOG_WARNING(...) {}
@@ -38,6 +39,7 @@ namespace Collie
 {
     enum LogVerbosity
     {
+        Assert = 0,
         Error = 1,
         Warning = 2,
         Message = 3,
@@ -86,7 +88,15 @@ namespace Collie
             {
                 char buffer[logLettersMaxCount];
                 sprintf_s(buffer, args ...);
-                printf("%s %s \n", logTemplate, buffer);
+
+                if (inLogLevel < 1)
+                {
+                    printf("%s %s \n", logTemplate, buffer);
+                }
+                else
+                {
+                    std::cerr << logTemplate << buffer << '\n';
+                }
 
                 if (logToFile)
                 {
