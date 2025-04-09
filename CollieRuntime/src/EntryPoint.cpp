@@ -2,7 +2,9 @@
 
 int main(int argc, char* argv[])
 {
-	LOG_ERROR("test")
-	LOG_WARNING("log")
-	ASSERT(false, "asd")
+	Collie::HString h = Collie::HString("x");
+	Collie::HString a = Collie::HString("x");
+	
+	LOG_ERROR(h.Get())
+	LOG_WARNING(a.Get())
 }

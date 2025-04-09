@@ -2,6 +2,8 @@
 
 #include "PCH.h"
 
+#include "Assert.h"
+
 namespace Collie
 {
     class HString
@@ -61,10 +63,7 @@ namespace Collie
                         break;
                     }
 
-                    if (existingChar != newChar)
-                    {
-                        LOG_ERROR("HASH CONFLICT")
-                    }
+                    ASSERT(existingChar == newChar, "HASH_CONFLICT")
                 }
             }
 #endif
