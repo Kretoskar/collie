@@ -1,5 +1,7 @@
 #pragma once
 
+#include "CollieCore/Memory/Public/Memory.h"
+
 #include <memory>
 #include <utility>
 #include <algorithm>

@@ -2,9 +2,15 @@
 
 int main(int argc, char* argv[])
 {
-	Collie::HString h = Collie::HString("x");
-	Collie::HString a = Collie::HString("x");
+	Collie::AllocationMetrics::GetHeapAllocationMetrics().LogAllocationMetrics();
 	
-	LOG_ERROR(h.Get())
-	LOG_WARNING(a.Get())
+	std::string s = "asd";
+	Collie::AllocationMetrics::GetHeapAllocationMetrics().LogAllocationMetrics();
+
+	{
+		std::unique_ptr<char> c = std::make_unique<char>();
+		Collie::AllocationMetrics::GetHeapAllocationMetrics().LogAllocationMetrics();
+	}
+
+	Collie::AllocationMetrics::GetHeapAllocationMetrics().LogAllocationMetrics();
 }
