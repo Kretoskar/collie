@@ -25,3 +25,8 @@ void operator delete(void* memory, size_t size)
     
     free(memory);
 }
+
+    // TODO: Arena Allocator (Sub arena allocator)
+    // TODO: Memory poole (memory tags/memory scope)
+    // TODO: Pool 
+    // TODO: Allocators per job
